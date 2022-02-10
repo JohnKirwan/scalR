@@ -11,7 +11,11 @@
 #' @export
 #'
 #' @examples
-#' add_numbers(1, 2) ## returns 3
+#' df  <- mtcars
+#' df$wt.s <- scale(df$wt)
+#' m   <- brms::brm(mpg ~ wt.s, data=df)
+#' ce  <- brms::conditional_effects(m)
+#' unscaled <- unscale_response(ce,"mpg.s")
 #'
 unscale_response <- function(cond_eff_obj,scaled_response){
 

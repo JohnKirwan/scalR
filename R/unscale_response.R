@@ -7,10 +7,13 @@
 #' @param cond_eff_obj The conditional effects object.
 #' @param scaled_response A description of the parameter 'y'.
 #'
-#' @export
-#'
 #' @examples
-#' add_numbers(1, 2) ## returns 3
+#' df  <- mtcars
+#' df$mpg.s <- scale(df$mpg)
+#' m   <- brms::brm(mpg.s ~ wt, data=df)
+#' ce  <- brms::conditional_effects(m)
+#' unscaled <- unscale_response(ce,'mpg.s')
+#' @export
 #'
 unscale_response <- function(cond_eff_obj,scaled_response){
 
